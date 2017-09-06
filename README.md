@@ -111,7 +111,7 @@ You can also supply an optional ConditionExpression and ExpressionAttributeValue
 ```js
 Account.create(
   { email: 'foo@example.com' },
-  { ConditionExpression: "attribute_not_exists(email) },
+  { ConditionExpression: 'attribute_not_exists(email)' },
   function (err, acc) {
     console.log('created account in DynamoDB', acc.get('email'));
 });
