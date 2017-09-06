@@ -106,6 +106,17 @@ Account.create({email: 'foo@example.com', name: 'Foo Bar', age: 21}, function (e
 });
 ```
 
+You can also supply an optional ConditionExpression and ExpressionAttributeValues
+
+```js
+Account.create(
+  { email: 'foo@example.com' },
+  { ConditionExpression: "attribute_not_exists(email) },
+  function (err, acc) {
+    console.log('created account in DynamoDB', acc.get('email'));
+});
+```
+
 You can also first instantiate a model and then save it.
 
 ```js
